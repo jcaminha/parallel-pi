@@ -18,19 +18,42 @@ O grande diferencial deste projeto é a sua interface no terminal, que apresenta
 
 ## 🛠️ Pré-requisitos
 
-Como o projeto está configurado para compilar no **macOS** utilizando o `clang` e a biblioteca `libomp` via Homebrew, certifique-se de possuir as ferramentas necessárias instaladas:
+O `Makefile` está configurado para **Linux**, utilizando o `gcc` com suporte a OpenMP (`-fopenmp`). O suporte a OpenMP já acompanha o `gcc` (via `libgomp`), então basta instalar o compilador e o `make`.
 
-1. **Xcode Command Line Tools**:
-   ```bash
-   xcode-select --install
-   ```
+### 🐧 Linux
 
-2. **Homebrew** e **OpenMP**:
-   ```bash
-   brew install libomp
-   ```
+- **Debian / Ubuntu**:
+  ```bash
+  sudo apt update
+  sudo apt install build-essential
+  ```
 
-*(Caso utilize Linux ou Windows, as diretivas do compilador no `Makefile` podem necessitar de ajustes simples para apontar para o compilador `gcc` local com `-fopenmp`).*
+- **Fedora / RHEL / CentOS**:
+  ```bash
+  sudo dnf install gcc make
+  ```
+
+- **Arch Linux**:
+  ```bash
+  sudo pacman -S base-devel
+  ```
+
+Para verificar a instalação:
+```bash
+gcc --version
+make --version
+```
+
+### 🍎 macOS (alternativa)
+
+No macOS é necessário usar o `clang` com a biblioteca `libomp` via Homebrew, e ajustar `CC` e as flags no `Makefile`:
+
+```bash
+xcode-select --install
+brew install libomp
+```
+
+*(No Windows, recomenda-se utilizar o WSL com uma distribuição Linux e seguir as instruções acima.)*
 
 ---
 
@@ -45,10 +68,20 @@ make
 ```
 Isso gerará o binário executável `parallel_pi`.
 
+Se preferir compilar manualmente, sem o `make`:
+```bash
+gcc -O3 -fopenmp main.c -o parallel_pi -lm
+```
+
 ### 2. Executar a Aplicação
 Inicie a aplicação executando:
 ```bash
 ./parallel_pi
+```
+
+O programa solicita interativamente o número de iterações e de threads (Enter usa o valor padrão). Para descobrir quantos núcleos lógicos sua máquina possui no Linux:
+```bash
+nproc
 ```
 
 ### 3. Limpar os Arquivos Temporários
