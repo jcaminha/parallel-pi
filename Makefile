@@ -1,6 +1,6 @@
-CC = clang
-CFLAGS = -O3 -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include
-LDFLAGS = -L/opt/homebrew/opt/libomp/lib -lomp
+CC = gcc
+CFLAGS = -O3 -fopenmp
+LDFLAGS = -fopenmp -lm
 
 TARGET = parallel_pi
 SRC = main.c
@@ -12,3 +12,5 @@ $(TARGET): $(SRC)
 
 clean:
 	rm -f $(TARGET)
+
+.PHONY: all clean
