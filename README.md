@@ -125,7 +125,7 @@ Núcleo  7: [██████████████████████�
 ==================================================
 Métrica                Sequencial     Paralelo      
 --------------------------------------------------
-Núcleos Utilizados    1              8             
+Núcleos Utilizados     1              8             
 Valor Calculado PI     3.14159265359  3.14159265359 
 Erro Absoluto          1.78e-13       2.40e-14      
 Tempo de Exec. (s)     2.112509       0.373184      

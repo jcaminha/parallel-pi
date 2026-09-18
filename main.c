@@ -237,14 +237,14 @@ int main() {
     double error_seq = fabs(pi_seq - M_PI);
     double error_par = fabs(pi_par - M_PI);
     
-    // Painel de Resultados
+    // Painel de Resultados (%-23s nos rótulos com 1 letra acentuada: printf conta bytes, não caracteres)
     printf(ANSI_COLOR_CYAN ANSI_BOLD "\n==================================================\n");
     printf("                TABELA DE RESULTADOS              \n");
     printf("==================================================\n" ANSI_COLOR_RESET);
     
-    printf(ANSI_BOLD "%-22s %-14s %-14s\n" ANSI_COLOR_RESET, "Métrica", "Sequencial", "Paralelo");
+    printf(ANSI_BOLD "%-23s %-14s %-14s\n" ANSI_COLOR_RESET, "Métrica", "Sequencial", "Paralelo");
     printf("--------------------------------------------------\n");
-    printf("%-22s %-14d %-14d\n", "Núcleos Utilizados", 1, num_threads);
+    printf("%-23s %-14d %-14d\n", "Núcleos Utilizados", 1, num_threads);
     printf("%-22s %-14.11f %-14.11f\n", "Valor Calculado PI", pi_seq, pi_par);
     printf("%-22s %-14.2e %-14.2e\n", "Erro Absoluto", error_seq, error_par);
     printf("%-22s " ANSI_COLOR_YELLOW "%-14.6f" ANSI_COLOR_RESET " " ANSI_COLOR_GREEN "%-14.6f\n" ANSI_COLOR_RESET, "Tempo de Exec. (s)", time_seq, time_par);
