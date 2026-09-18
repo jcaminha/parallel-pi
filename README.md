@@ -100,14 +100,14 @@ Ao iniciar o programa, ele detecta automaticamente o número de núcleos lógico
 ==================================================
      CÁLCULO PARALELO DE PI COM OPENMP            
 ==================================================
-Núcleos (Threads) lógicos disponíveis no sistema: 8
+Núcleos (Threads) lógicos disponíveis no sistema: 20
 
 Informe o número de iterações [1.000.000.000 - Enter para padrão]: 
 Informe o número de núcleos (threads) [8 - Enter para padrão]: 
 
 [1/2] Iniciando cálculo SEQUENCIAL...
 Sequencial: [██████████████████████████████] 100.0%
-✔ Sequencial concluído em 2.451829 segundos.
+✔ Sequencial concluído em 2.112509 segundos.
 
 [2/2] Iniciando cálculo PARALELO utilizando 8 núcleos...
 Núcleo  0: [██████████████████████████████] 100.0%
@@ -118,22 +118,22 @@ Núcleo  4: [██████████████████████�
 Núcleo  5: [██████████████████████████████] 100.0%
 Núcleo  6: [██████████████████████████████] 100.0%
 Núcleo  7: [██████████████████████████████] 100.0%
-✔ Paralelo concluído em 0.381204 segundos.
+✔ Paralelo concluído em 0.373184 segundos.
 
 ==================================================
                 TABELA DE RESULTADOS              
 ==================================================
 Métrica                Sequencial     Paralelo      
 --------------------------------------------------
-Núcleos Utilizados     1              8             
+Núcleos Utilizados    1              8             
 Valor Calculado PI     3.14159265359  3.14159265359 
-Erro Absoluto          8.88e-16       8.88e-16      
-Tempo de Exec. (s)     2.451829       0.381204      
+Erro Absoluto          1.78e-13       2.40e-14      
+Tempo de Exec. (s)     2.112509       0.373184      
 --------------------------------------------------
 
 Análise de Ganho e Desempenho:
-  • Speedup (Aceleração):       6.43x (6.4 vezes mais rápido)
-  • Eficiência por Núcleo:     80.40%
+  • Speedup (Aceleração):       5.66x (5.7 vezes mais rápido)
+  • Eficiência por Núcleo:     70.76%
 
 🎉 Sucesso! O processamento paralelo reduziu o tempo de computação.
 ```
